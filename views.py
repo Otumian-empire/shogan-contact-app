@@ -35,8 +35,8 @@ def create_contact():
             name = request.form['name']
             number = request.form['number']
 
-            db.create(name, number)
-            status = True
+            if db.create(name, number):
+                status = True
 
     return jsonify({"status": status})
 
@@ -50,8 +50,8 @@ def update_contact(id):
             name = request.form['name']
             number = request.form['number']
 
-            db.update(id, name, number)
-            status = True
+            if db.update(id, name, number):
+                status = True
 
     return jsonify({"status": status})
 
@@ -60,8 +60,8 @@ def delete_one_contact(id):
     status = False
 
     if request.method == 'DELETE':
-        db.delete_one(id)
-        status = True
+        if db.delete_one(id):
+            status = True
 
     return jsonify({"status": status})
 
@@ -70,7 +70,7 @@ def delete_all_contact():
     status = False
 
     if request.method == 'DELETE':
-        db.delete_all()
-        status = True
+        if db.delete_all():
+            status = True
 
     return jsonify({"status": status})
