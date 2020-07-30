@@ -16,6 +16,7 @@ host = environ.get('DB_HOST')
 port = environ.get('DB_PORT')
 database = environ.get('DB_NAME')
 
+
 def connect_db():
     try:
         conn = psycopg2.connect(
@@ -23,5 +24,6 @@ def connect_db():
         return conn
     except psycopg2.Error as e:
         return str(e)
+
 
 conn = connect_db()

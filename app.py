@@ -1,11 +1,9 @@
-from config import app, conn
+from config import app
+from views import home
 
 
-@app.route('/', methods=['GET', 'POST'])
-def home():
-    return "This is the index page"
-
+app.add_url_rule('/', view_func=home, methods=['GET', 'POST'])
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, use_reloader=True)
 
