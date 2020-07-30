@@ -4,7 +4,6 @@ import psycopg2
 from dotenv import load_dotenv
 from flask import Flask
 
-
 # load the .env file and create flask app instance
 load_dotenv('./.env')
 app = Flask(__name__)
