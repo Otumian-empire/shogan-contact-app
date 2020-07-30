@@ -1,4 +1,8 @@
 from config import conn
+# from psycopg2.extras import DictCursor
+# import psycopg2
+# from psycopg2.extras import DictRow
+import psycopg2.extras
 
 
 def create_table():
@@ -31,7 +35,9 @@ def create(name, number):
 
 
 def read_all():
-    cursor = conn.cursor()
+    # cursor = conn.cursor(cursor_factory=DictCursor)
+    # cursor = conn.cursor(cursor_factory=DictRow)
+    cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
     cursor.execute("SELECT * FROM contacts")
     s = cursor.fetchall()
     close_connection(cursor)
@@ -39,9 +45,10 @@ def read_all():
 
 
 def read_one(id):
-    cursor = conn.cursor()
-    cursor.execute("SELECT id, name, number FROM contacts \
-		WHERE id=%s", (id, ))
+    # cursor = conn.cursor(cursor_factory=DictCursor)
+    # cursor = conn.cursor(cursor_factory=DictRow)
+    cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+    cursor.execute("SELECT id, name, number FROM contacts WHERE id=%s", (id, ))
     s = cursor.fetchone()
     close_connection(cursor)
     return s
