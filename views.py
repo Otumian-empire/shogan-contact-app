@@ -1,4 +1,4 @@
-from flask import jsonify, request
+from flask import jsonify, render_template, request
 
 import db
 
@@ -74,3 +74,22 @@ def delete_all_contact():
             status = True
 
     return jsonify({"status": status})
+
+
+def readme_page():
+    return render_template('readme.html')
+
+
+def home_page():
+    return render_template('index.html')
+
+
+def add_page():
+    return render_template('add.html')
+
+
+def update_page(id):
+    return render_template('update.html')
+
+def delete_page(id):
+    return render_template('delete.html')

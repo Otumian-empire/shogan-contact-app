@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Number</th>
+                <th scope="col">Option</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- load all data here -->
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+{% endblock %}

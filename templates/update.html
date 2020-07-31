@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block title %} Update {% endblock %}
+
+{% block body %}
+
+<form method="POST" action="">
+    <div class="form-group">
+        <label for="contactName">Name</label>
+        <input type="text" class="form-control" id="contactName" name="name" placeholder="Enter name">
+    </div>
+    <div class="form-group">
+        <label for="contactNumber">Number</label>
+        <input type="text" class="form-control" id="contactNumber" name="number" placeholder="Password">
+    </div>
+
+    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+</form>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ url_for('static', filename='update.js') }}"></script>
+{% endblock %}
