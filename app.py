@@ -1,6 +1,10 @@
 import views
 from config import app
 
+# --------------------------------------------------------------------------- #
+# ------------------------------- API routes -------------------------------- #
+# --------------------------------------------------------------------------- #
+
 # read all contacts
 app.add_url_rule('/api/', view_func=views.home, methods=['GET'])
 
@@ -21,7 +25,11 @@ app.add_url_rule('/api/<id>', view_func=views.delete_one_contact,
 # delete all contact
 app.add_url_rule('/api/', view_func=views.delete_all_contact,
                  methods=['DELETE'])
-# ----------------------------------------------------------------- #
+
+
+# --------------------------------------------------------------------------- #
+# ------------------------------- Web routes -------------------------------- #
+# --------------------------------------------------------------------------- #
 
 # readme page
 app.add_url_rule('/', view_func=views.readme_page, methods=['GET'])
